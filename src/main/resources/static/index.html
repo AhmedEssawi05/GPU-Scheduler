@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPU Job Scheduler Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e1e4e8; }
+    header { background: #161b22; border-bottom: 1px solid #30363d; padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+    header h1 { font-size: 20px; font-weight: 600; }
+    .badge { background: #238636; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 12px; }
+    .container { padding: 24px; max-width: 1400px; margin: 0 auto; }
+    .metrics-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 24px; }
+    .metric-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; text-align: center; }
+    .metric-card .value { font-size: 28px; font-weight: 700; color: #58a6ff; }
+    .metric-card .label { font-size: 12px; color: #8b949e; margin-top: 4px; }
+    .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; }
+    .card h2 { font-size: 14px; font-weight: 600; margin-bottom: 16px; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; }
+    .nodes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
+    .node-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; }
+    .node-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+    .progress-bar { background: #21262d; border-radius: 4px; height: 8px; overflow: hidden; margin: 4px 0 8px; }
+    .progress-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+    .progress-fill.gpu { background: #58a6ff; }
+    .progress-fill.mem { background: #3fb950; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 12px; color: #8b949e; }
+    .node-status { font-size: 11px; padding: 2px 8px; border-radius: 12px; display: inline-block; }
+    .node-status.AVAILABLE { background: #1f4423; color: #3fb950; }
+    .node-status.FULL { background: #4d1c1c; color: #f85149; }
+    .form-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+    .form-card h2 { font-size: 14px; font-weight: 600; margin-bottom: 16px; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto; gap: 12px; align-items: end; }
+    .form-group { display: flex; flex-direction: column; gap: 4px; }
+    .form-group label { font-size: 12px; color: #8b949e; }
+    .form-group input, .form-group select { background: #0d1117; border: 1px solid #30363d; color: #e1e4e8; padding: 8px 10px; border-radius: 6px; font-size: 14px; outline: none; }
+    .form-group input:focus, .form-group select:focus { border-color: #58a6ff; }
+    .btn { background: #238636; color: #fff; border: none; padding: 9px 20px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+    .btn:hover { background: #2ea043; }
+    .btn-cancel { background: #da3633; font-size: 12px; padding: 4px 10px; border-radius: 4px; cursor: pointer; border: none; color: #fff; }
+    .btn-cancel:hover { background: #f85149; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; padding: 8px 12px; color: #8b949e; font-weight: 500; border-bottom: 1px solid #21262d; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+    td { padding: 10px 12px; border-bottom: 1px solid #21262d; }
+    tr:last-child td { border-bottom: none; }
+    .status-badge { font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 500; }
+    .status-QUEUED { background: #2d2b00; color: #e3b341; }
+    .status-RUNNING { background: #1f4423; color: #3fb950; }
+    .status-PREEMPTED { background: #3d1c78; color: #bc8cff; }
+    .status-COMPLETED { background: #1c2f4a; color: #58a6ff; }
+    .status-CANCELLED { background: #2d1c1c; color: #8b949e; }
+    .priority-LOW { color: #8b949e; }
+    .priority-MEDIUM { color: #e3b341; }
+    .priority-HIGH { color: #f0883e; }
+    .priority-CRITICAL { color: #f85149; font-weight: 600; }
+    #refreshIndicator { position: fixed; bottom: 16px; right: 16px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 6px 12px; font-size: 12px; color: #8b949e; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GPU Job Scheduler</h1>
+    <span class="badge">LIVE</span>
+  </header>
+  <div class="container">
+
+    <!-- Metrics -->
+    <div class="metrics-row" id="metricsRow">
+      <div class="metric-card"><div class="value" id="m-util">-</div><div class="label">Cluster Utilization</div></div>
+      <div class="metric-card"><div class="value" id="m-total">-</div><div class="label">Total GPUs</div></div>
+      <div class="metric-card"><div class="value" id="m-alloc">-</div><div class="label">Allocated GPUs</div></div>
+      <div class="metric-card"><div class="value" id="m-queue">-</div><div class="label">Queue Depth</div></div>
+      <div class="metric-card"><div class="value" id="m-running">-</div><div class="label">Running Jobs</div></div>
+      <div class="metric-card"><div class="value" id="m-wait">-</div><div class="label">Avg Wait (s)</div></div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts-row">
+      <div class="card">
+        <h2>Cluster Utilization Over Time</h2>
+        <canvas id="utilizationChart" height="120"></canvas>
+      </div>
+      <div class="card">
+        <h2>Queue Depth Over Time</h2>
+        <canvas id="queueChart" height="120"></canvas>
+      </div>
+    </div>
+
+    <!-- Node Status Grid -->
+    <div class="nodes-grid" id="nodesGrid"></div>
+
+    <!-- Job Submission Form -->
+    <div class="form-card">
+      <h2>Submit Job</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Job Name</label>
+          <input type="text" id="jobName" placeholder="e.g. training-run-1">
+        </div>
+        <div class="form-group">
+          <label>GPU Request</label>
+          <input type="number" id="gpuRequest" min="1" max="8" value="1">
+        </div>
+        <div class="form-group">
+          <label>Memory (GB)</label>
+          <input type="number" id="memRequest" min="1" max="64" value="8">
+        </div>
+        <div class="form-group">
+          <label>Priority</label>
+          <select id="priority">
+            <option value="LOW">LOW</option>
+            <option value="MEDIUM" selected>MEDIUM</option>
+            <option value="HIGH">HIGH</option>
+            <option value="CRITICAL">CRITICAL</option>
+          </select>
+        </div>
+        <button class="btn" onclick="submitJob()">Submit Job</button>
+      </div>
+      <div id="submitMsg" style="margin-top:10px;font-size:13px;color:#3fb950;"></div>
+    </div>
+
+    <!-- Jobs Table -->
+    <div class="card">
+      <h2>All Jobs</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>GPUs</th>
+            <th>Memory</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Node</th>
+            <th>Duration</th>
+            <th>Submitted</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="jobsTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="refreshIndicator">Refreshing...</div>
+
+  <script>
+    const MAX_POINTS = 30;
+    const utilizationData = [];
+    const queueData = [];
+    const timeLabels = [];
+    let nodeMap = {};
+
+    const utilizationChart = new Chart(document.getElementById('utilizationChart'), {
+      type: 'line',
+      data: {
+        labels: timeLabels,
+        datasets: [{
+          label: 'Utilization %',
+          data: utilizationData,
+          borderColor: '#58a6ff',
+          backgroundColor: 'rgba(88,166,255,0.1)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 2
+        }]
+      },
+      options: {
+        animation: false,
+        scales: {
+          y: { min: 0, max: 100, grid: { color: '#21262d' }, ticks: { color: '#8b949e' } },
+          x: { grid: { color: '#21262d' }, ticks: { color: '#8b949e', maxTicksLimit: 8 } }
+        },
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    const queueChart = new Chart(document.getElementById('queueChart'), {
+      type: 'bar',
+      data: {
+        labels: timeLabels,
+        datasets: [{
+          label: 'Queue Depth',
+          data: queueData,
+          backgroundColor: 'rgba(227,179,65,0.7)',
+          borderColor: '#e3b341',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        animation: false,
+        scales: {
+          y: { min: 0, grid: { color: '#21262d' }, ticks: { color: '#8b949e' } },
+          x: { grid: { color: '#21262d' }, ticks: { color: '#8b949e', maxTicksLimit: 8 } }
+        },
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    async function fetchMetrics() {
+      const res = await fetch('/api/metrics');
+      const m = await res.json();
+      document.getElementById('m-util').textContent = m.clusterUtilizationPercent + '%';
+      document.getElementById('m-total').textContent = m.totalGpus;
+      document.getElementById('m-alloc').textContent = m.allocatedGpus;
+      document.getElementById('m-queue').textContent = m.queueDepth;
+      document.getElementById('m-running').textContent = m.runningJobs;
+      document.getElementById('m-wait').textContent = m.avgWaitTimeSeconds + 's';
+
+      const now = new Date().toLocaleTimeString();
+      timeLabels.push(now);
+      utilizationData.push(m.clusterUtilizationPercent);
+      queueData.push(m.queueDepth);
+      if (timeLabels.length > MAX_POINTS) {
+        timeLabels.shift(); utilizationData.shift(); queueData.shift();
+      }
+      utilizationChart.update();
+      queueChart.update();
+    }
+
+    async function fetchNodes() {
+      const res = await fetch('/api/nodes');
+      const nodes = await res.json();
+      nodeMap = {};
+      nodes.forEach(n => nodeMap[n.id] = n.name);
+
+      const grid = document.getElementById('nodesGrid');
+      grid.innerHTML = nodes.map(n => {
+        const gpuPct = Math.round(n.allocatedGpus / n.totalGpus * 100);
+        const memPct = Math.round(n.allocatedMemoryGb / n.totalMemoryGb * 100);
+        return `<div class="node-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <h3>${n.name}</h3>
+            <span class="node-status ${n.status}">${n.status}</span>
+          </div>
+          <div class="progress-label"><span>GPUs</span><span>${n.allocatedGpus}/${n.totalGpus}</span></div>
+          <div class="progress-bar"><div class="progress-fill gpu" style="width:${gpuPct}%"></div></div>
+          <div class="progress-label"><span>Memory</span><span>${n.allocatedMemoryGb}/${n.totalMemoryGb} GB</span></div>
+          <div class="progress-bar"><div class="progress-fill mem" style="width:${memPct}%"></div></div>
+        </div>`;
+      }).join('');
+    }
+
+    async function fetchJobs() {
+      const res = await fetch('/api/jobs');
+      const jobs = await res.json();
+      const tbody = document.getElementById('jobsTable');
+      if (jobs.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;color:#8b949e;padding:24px;">No jobs yet</td></tr>';
+        return;
+      }
+      const sorted = jobs.slice().sort((a, b) => b.id - a.id);
+      tbody.innerHTML = sorted.map(j => {
+        const node = j.assignedNodeId ? (nodeMap[j.assignedNodeId] || 'Node #' + j.assignedNodeId) : '-';
+        const sub = j.submittedAt ? new Date(j.submittedAt).toLocaleTimeString() : '-';
+        const canCancel = j.status === 'QUEUED' || j.status === 'RUNNING' || j.status === 'PREEMPTED';
+        return `<tr>
+          <td>${j.id}</td>
+          <td>${j.name}</td>
+          <td>${j.gpuRequest}</td>
+          <td>${j.memoryRequestGb} GB</td>
+          <td class="priority-${j.priority}">${j.priority}</td>
+          <td><span class="status-badge status-${j.status}">${j.status}</span></td>
+          <td>${node}</td>
+          <td>${j.durationSeconds}s</td>
+          <td>${sub}</td>
+          <td>${canCancel ? `<button class="btn-cancel" onclick="cancelJob(${j.id})">Cancel</button>` : ''}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    async function submitJob() {
+      const name = document.getElementById('jobName').value.trim();
+      const gpuRequest = parseInt(document.getElementById('gpuRequest').value);
+      const memoryRequestGb = parseInt(document.getElementById('memRequest').value);
+      const priority = document.getElementById('priority').value;
+      if (!name) { alert('Please enter a job name'); return; }
+
+      const res = await fetch('/api/jobs', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, gpuRequest, memoryRequestGb, priority })
+      });
+      if (res.ok) {
+        const job = await res.json();
+        document.getElementById('submitMsg').textContent = `Job "${job.name}" submitted (ID: ${job.id})`;
+        document.getElementById('jobName').value = '';
+        setTimeout(() => document.getElementById('submitMsg').textContent = '', 3000);
+        await refresh();
+      }
+    }
+
+    async function cancelJob(id) {
+      await fetch('/api/jobs/' + id, { method: 'DELETE' });
+      await refresh();
+    }
+
+    async function refresh() {
+      document.getElementById('refreshIndicator').textContent = 'Refreshing...';
+      await Promise.all([fetchMetrics(), fetchNodes(), fetchJobs()]);
+      document.getElementById('refreshIndicator').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
+    }
+
+    refresh();
+    setInterval(refresh, 3000);
+  </script>
+</body>
+</html>
