@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.essawi.gpuscheduler.JobControllerTest" time="1.784" tests="9" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/ahmedessawi/gpu-scheduler/target/test-classes:/Users/ahmedessawi/gpu-scheduler/target/classes:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.5.0/spring-boot-starter-data-jpa-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter/3.5.0/spring-boot-starter-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot/3.5.0/spring-boot-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.5.0/spring-boot-autoconfigure-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.5.0/spring-boot-starter-logging-3.5.0.jar:/Users/ahmedessawi/.m2/repository/ch/qos/logback/logback-classic/1.5.18/logback-classic-1.5.18.jar:/Users/ahmedessawi/.m2/repository/ch/qos/logback/logback-core/1.5.18/logback-core-1.5.18.jar:/Users/ahmedessawi/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar:/Users/ahmedessawi/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/Users/ahmedessawi/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar:/Users/ahmedessawi/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/ahmedessawi/.m2/repository/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.5.0/spring-boot-starter-jdbc-3.5.0.jar:/Users/ahmedessawi/.m2/repository/com/zaxxer/HikariCP/6.3.0/HikariCP-6.3.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-jdbc/6.2.7/spring-jdbc-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/hibernate/orm/hibernate-core/6.6.15.Final/hibernate-core-6.6.15.Final.jar:/Users/ahmedessawi/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/ahmedessawi/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/ahmedessawi/.m2/repository/org/jboss/logging/jboss-logging/3.6.1.Final/jboss-logging-3.6.1.Final.jar:/Users/ahmedessawi/.m2/repository/org/hibernate/common/hibernate-commons-annotations/7.0.3.Final/hibernate-commons-annotations-7.0.3.Final.jar:/Users/ahmedessawi/.m2/repository/io/smallrye/jandex/3.2.0/jandex-3.2.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/Users/ahmedessawi/.m2/repository/net/bytebuddy/byte-buddy/1.17.5/byte-buddy-1.17.5.jar:/Users/ahmedessawi/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/Users/ahmedessawi/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/Users/ahmedessawi/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/Users/ahmedessawi/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/Users/ahmedessawi/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/Users/ahmedessawi/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/ahmedessawi/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/data/spring-data-jpa/3.5.0/spring-data-jpa-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/data/spring-data-commons/3.5.0/spring-data-commons-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-orm/6.2.7/spring-orm-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-context/6.2.7/spring-context-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-aop/6.2.7/spring-aop-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-tx/6.2.7/spring-tx-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-beans/6.2.7/spring-beans-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-aspects/6.2.7/spring-aspects-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/aspectj/aspectjweaver/1.9.24/aspectjweaver-1.9.24.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.5.0/spring-boot-starter-web-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.5.0/spring-boot-starter-json-3.5.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.19.0/jackson-databind-2.19.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.19.0/jackson-annotations-2.19.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.19.0/jackson-core-2.19.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.19.0/jackson-datatype-jdk8-2.19.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.19.0/jackson-datatype-jsr310-2.19.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.19.0/jackson-module-parameter-names-2.19.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.5.0/spring-boot-starter-tomcat-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.41/tomcat-embed-core-10.1.41.jar:/Users/ahmedessawi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.41/tomcat-embed-el-10.1.41.jar:/Users/ahmedessawi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.41/tomcat-embed-websocket-10.1.41.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-web/6.2.7/spring-web-6.2.7.jar:/Users/ahmedessawi/.m2/repository/io/micrometer/micrometer-observation/1.15.0/micrometer-observation-1.15.0.jar:/Users/ahmedessawi/.m2/repository/io/micrometer/micrometer-commons/1.15.0/micrometer-commons-1.15.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-webmvc/6.2.7/spring-webmvc-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-expression/6.2.7/spring-expression-6.2.7.jar:/Users/ahmedessawi/.m2/repository/com/h2database/h2/2.3.232/h2-2.3.232.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.5.0/spring-boot-starter-test-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-test/3.5.0/spring-boot-test-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.5.0/spring-boot-test-autoconfigure-3.5.0.jar:/Users/ahmedessawi/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/ahmedessawi/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/ahmedessawi/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/ahmedessawi/.m2/repository/net/minidev/json-smart/2.5.2/json-smart-2.5.2.jar:/Users/ahmedessawi/.m2/repository/net/minidev/accessors-smart/2.5.2/accessors-smart-2.5.2.jar:/Users/ahmedessawi/.m2/repository/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar:/Users/ahmedessawi/.m2/repository/org/assertj/assertj-core/3.27.3/assertj-core-3.27.3.jar:/Users/ahmedessawi/.m2/repository/org/awaitility/awaitility/4.3.0/awaitility-4.3.0.jar:/Users/ahmedessawi/.m2/repository/org/hamcrest/hamcrest/3.0/hamcrest-3.0.jar:/Users/ahmedessawi/.m2/repository/org/junit/jupiter/junit-jupiter/5.12.2/junit-jupiter-5.12.2.jar:/Users/ahmedessawi/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.12.2/junit-jupiter-api-5.12.2.jar:/Users/ahmedessawi/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/ahmedessawi/.m2/repository/org/junit/platform/junit-platform-commons/1.12.2/junit-platform-commons-1.12.2.jar:/Users/ahmedessawi/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/ahmedessawi/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.12.2/junit-jupiter-params-5.12.2.jar:/Users/ahmedessawi/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.12.2/junit-jupiter-engine-5.12.2.jar:/Users/ahmedessawi/.m2/repository/org/junit/platform/junit-platform-engine/1.12.2/junit-platform-engine-1.12.2.jar:/Users/ahmedessawi/.m2/repository/org/mockito/mockito-core/5.17.0/mockito-core-5.17.0.jar:/Users/ahmedessawi/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.5/byte-buddy-agent-1.17.5.jar:/Users/ahmedessawi/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/ahmedessawi/.m2/repository/org/mockito/mockito-junit-jupiter/5.17.0/mockito-junit-jupiter-5.17.0.jar:/Users/ahmedessawi/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/ahmedessawi/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-core/6.2.7/spring-core-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-jcl/6.2.7/spring-jcl-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-test/6.2.7/spring-test-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/xmlunit/xmlunit-core/2.10.1/xmlunit-core-2.10.1.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="America/Chicago"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="APPLICATION_NAME" value="gpu-scheduler"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/private/tmp/jdk-21.0.4+7/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/ahmedessawi/gpu-scheduler/target/surefire/surefirebooter-20260406174013311_3.jar /Users/ahmedessawi/gpu-scheduler/target/surefire 2026-04-06T17-40-12_927-jvmRun1 surefire-20260406174013311_1tmp surefire_0-20260406174013311_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/ahmedessawi/gpu-scheduler/target/test-classes:/Users/ahmedessawi/gpu-scheduler/target/classes:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.5.0/spring-boot-starter-data-jpa-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter/3.5.0/spring-boot-starter-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot/3.5.0/spring-boot-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.5.0/spring-boot-autoconfigure-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.5.0/spring-boot-starter-logging-3.5.0.jar:/Users/ahmedessawi/.m2/repository/ch/qos/logback/logback-classic/1.5.18/logback-classic-1.5.18.jar:/Users/ahmedessawi/.m2/repository/ch/qos/logback/logback-core/1.5.18/logback-core-1.5.18.jar:/Users/ahmedessawi/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar:/Users/ahmedessawi/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/Users/ahmedessawi/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar:/Users/ahmedessawi/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/ahmedessawi/.m2/repository/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.5.0/spring-boot-starter-jdbc-3.5.0.jar:/Users/ahmedessawi/.m2/repository/com/zaxxer/HikariCP/6.3.0/HikariCP-6.3.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-jdbc/6.2.7/spring-jdbc-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/hibernate/orm/hibernate-core/6.6.15.Final/hibernate-core-6.6.15.Final.jar:/Users/ahmedessawi/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/ahmedessawi/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/ahmedessawi/.m2/repository/org/jboss/logging/jboss-logging/3.6.1.Final/jboss-logging-3.6.1.Final.jar:/Users/ahmedessawi/.m2/repository/org/hibernate/common/hibernate-commons-annotations/7.0.3.Final/hibernate-commons-annotations-7.0.3.Final.jar:/Users/ahmedessawi/.m2/repository/io/smallrye/jandex/3.2.0/jandex-3.2.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/Users/ahmedessawi/.m2/repository/net/bytebuddy/byte-buddy/1.17.5/byte-buddy-1.17.5.jar:/Users/ahmedessawi/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/Users/ahmedessawi/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/Users/ahmedessawi/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/Users/ahmedessawi/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/Users/ahmedessawi/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/Users/ahmedessawi/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/ahmedessawi/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/data/spring-data-jpa/3.5.0/spring-data-jpa-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/data/spring-data-commons/3.5.0/spring-data-commons-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-orm/6.2.7/spring-orm-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-context/6.2.7/spring-context-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-aop/6.2.7/spring-aop-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-tx/6.2.7/spring-tx-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-beans/6.2.7/spring-beans-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-aspects/6.2.7/spring-aspects-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/aspectj/aspectjweaver/1.9.24/aspectjweaver-1.9.24.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.5.0/spring-boot-starter-web-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.5.0/spring-boot-starter-json-3.5.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.19.0/jackson-databind-2.19.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.19.0/jackson-annotations-2.19.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.19.0/jackson-core-2.19.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.19.0/jackson-datatype-jdk8-2.19.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.19.0/jackson-datatype-jsr310-2.19.0.jar:/Users/ahmedessawi/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.19.0/jackson-module-parameter-names-2.19.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.5.0/spring-boot-starter-tomcat-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.41/tomcat-embed-core-10.1.41.jar:/Users/ahmedessawi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.41/tomcat-embed-el-10.1.41.jar:/Users/ahmedessawi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.41/tomcat-embed-websocket-10.1.41.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-web/6.2.7/spring-web-6.2.7.jar:/Users/ahmedessawi/.m2/repository/io/micrometer/micrometer-observation/1.15.0/micrometer-observation-1.15.0.jar:/Users/ahmedessawi/.m2/repository/io/micrometer/micrometer-commons/1.15.0/micrometer-commons-1.15.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-webmvc/6.2.7/spring-webmvc-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-expression/6.2.7/spring-expression-6.2.7.jar:/Users/ahmedessawi/.m2/repository/com/h2database/h2/2.3.232/h2-2.3.232.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.5.0/spring-boot-starter-test-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-test/3.5.0/spring-boot-test-3.5.0.jar:/Users/ahmedessawi/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.5.0/spring-boot-test-autoconfigure-3.5.0.jar:/Users/ahmedessawi/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/ahmedessawi/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/ahmedessawi/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/ahmedessawi/.m2/repository/net/minidev/json-smart/2.5.2/json-smart-2.5.2.jar:/Users/ahmedessawi/.m2/repository/net/minidev/accessors-smart/2.5.2/accessors-smart-2.5.2.jar:/Users/ahmedessawi/.m2/repository/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar:/Users/ahmedessawi/.m2/repository/org/assertj/assertj-core/3.27.3/assertj-core-3.27.3.jar:/Users/ahmedessawi/.m2/repository/org/awaitility/awaitility/4.3.0/awaitility-4.3.0.jar:/Users/ahmedessawi/.m2/repository/org/hamcrest/hamcrest/3.0/hamcrest-3.0.jar:/Users/ahmedessawi/.m2/repository/org/junit/jupiter/junit-jupiter/5.12.2/junit-jupiter-5.12.2.jar:/Users/ahmedessawi/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.12.2/junit-jupiter-api-5.12.2.jar:/Users/ahmedessawi/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/ahmedessawi/.m2/repository/org/junit/platform/junit-platform-commons/1.12.2/junit-platform-commons-1.12.2.jar:/Users/ahmedessawi/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/ahmedessawi/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.12.2/junit-jupiter-params-5.12.2.jar:/Users/ahmedessawi/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.12.2/junit-jupiter-engine-5.12.2.jar:/Users/ahmedessawi/.m2/repository/org/junit/platform/junit-platform-engine/1.12.2/junit-platform-engine-1.12.2.jar:/Users/ahmedessawi/.m2/repository/org/mockito/mockito-core/5.17.0/mockito-core-5.17.0.jar:/Users/ahmedessawi/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.5/byte-buddy-agent-1.17.5.jar:/Users/ahmedessawi/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/ahmedessawi/.m2/repository/org/mockito/mockito-junit-jupiter/5.17.0/mockito-junit-jupiter-5.17.0.jar:/Users/ahmedessawi/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/ahmedessawi/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-core/6.2.7/spring-core-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-jcl/6.2.7/spring-jcl-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/springframework/spring-test/6.2.7/spring-test-6.2.7.jar:/Users/ahmedessawi/.m2/repository/org/xmlunit/xmlunit-core/2.10.1/xmlunit-core-2.10.1.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/ahmedessawi"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-07-16"/>
+    <property name="java.home" value="/private/tmp/jdk-21.0.4+7/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/ahmedessawi/gpu-scheduler"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/ahmedessawi/gpu-scheduler/target/surefire/surefirebooter-20260406174013311_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="21.0.4+7-LTS"/>
+    <property name="user.name" value="ahmedessawi"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="15.3.2"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.4+7"/>
+    <property name="localRepository" value="/Users/ahmedessawi/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/36/sfr5srxs7jjdm3r6lr5lmqh00000gn/T/"/>
+    <property name="com.zaxxer.hikari.pool_number" value="17"/>
+    <property name="java.version" value="21.0.4"/>
+    <property name="user.dir" value="/Users/ahmedessawi/gpu-scheduler"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="15204"/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/ahmedessawi/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.4+7-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="65.0"/>
+    <property name="LOGGED_APPLICATION_NAME" value="[gpu-scheduler] "/>
+  </properties>
+  <testcase name="testGetJobByIdReturnsJob" classname="com.essawi.gpuscheduler.JobControllerTest" time="0.243">
+    <system-out><![CDATA[2026-04-06T17:40:16.958-05:00  INFO 15204 --- [gpu-scheduler] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.essawi.gpuscheduler.JobControllerTest]: JobControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-06T17:40:16.961-05:00  INFO 15204 --- [gpu-scheduler] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.essawi.gpuscheduler.GpuSchedulerApplication for test class com.essawi.gpuscheduler.JobControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-04-06T17:40:16.971-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Starting JobControllerTest using Java 21.0.4 with PID 15204 (started by ahmedessawi in /Users/ahmedessawi/gpu-scheduler)
+2026-04-06T17:40:16.971-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2026-04-06T17:40:17.023-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06T17:40:17.026-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+2026-04-06T17:40:17.051-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06T17:40:17.052-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-06T17:40:17.054-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06T17:40:17.054-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2026-04-06T17:40:17.055-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection conn32: url=jdbc:h2:mem:gpuscheduler user=SA
+2026-04-06T17:40:17.055-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2026-04-06T17:40:17.055-05:00  INFO 15204 --- [gpu-scheduler] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-8)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-06T17:40:17.065-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06T17:40:17.067-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:17.084-05:00  WARN 15204 --- [gpu-scheduler] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06T17:40:17.085-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-04-06T17:40:17.104-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:gpuscheduler'
+2026-04-06T17:40:17.116-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-06T17:40:17.116-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-06T17:40:17.116-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-04-06T17:40:17.121-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Started JobControllerTest in 0.159 seconds (process running for 3.75)
+Seeded 4 GPU nodes. Total: 24 GPUs, 192GB memory.
+2026-04-06T17:40:17.125-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:17.126-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2026-04-06T17:40:17.157-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-04-06T17:40:17.166-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Starting JobControllerTest using Java 21.0.4 with PID 15204 (started by ahmedessawi in /Users/ahmedessawi/gpu-scheduler)
+2026-04-06T17:40:17.166-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2026-04-06T17:40:17.218-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06T17:40:17.220-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+2026-04-06T17:40:17.241-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06T17:40:17.242-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-06T17:40:17.244-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06T17:40:17.244-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2026-04-06T17:40:17.245-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection conn40: url=jdbc:h2:mem:gpuscheduler user=SA
+2026-04-06T17:40:17.245-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2026-04-06T17:40:17.245-05:00  INFO 15204 --- [gpu-scheduler] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-9)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-06T17:40:17.254-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06T17:40:17.256-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:17.272-05:00  WARN 15204 --- [gpu-scheduler] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06T17:40:17.274-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-04-06T17:40:17.292-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:gpuscheduler'
+2026-04-06T17:40:17.297-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-06T17:40:17.297-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-06T17:40:17.297-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-04-06T17:40:17.300-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Started JobControllerTest in 0.142 seconds (process running for 3.929)
+Seeded 4 GPU nodes. Total: 24 GPUs, 192GB memory.
+]]></system-out>
+  </testcase>
+  <testcase name="testCancelNonExistentJobReturns404" classname="com.essawi.gpuscheduler.JobControllerTest" time="0.309">
+    <system-out><![CDATA[2026-04-06T17:40:17.368-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:17.368-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2026-04-06T17:40:17.382-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-04-06T17:40:17.394-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Starting JobControllerTest using Java 21.0.4 with PID 15204 (started by ahmedessawi in /Users/ahmedessawi/gpu-scheduler)
+2026-04-06T17:40:17.394-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2026-04-06T17:40:17.432-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06T17:40:17.435-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2026-04-06T17:40:17.454-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06T17:40:17.455-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-06T17:40:17.457-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06T17:40:17.457-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2026-04-06T17:40:17.458-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-10 - Added connection conn43: url=jdbc:h2:mem:gpuscheduler user=SA
+2026-04-06T17:40:17.458-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2026-04-06T17:40:17.458-05:00  INFO 15204 --- [gpu-scheduler] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-10)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-06T17:40:17.468-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06T17:40:17.469-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:17.490-05:00  WARN 15204 --- [gpu-scheduler] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06T17:40:17.492-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-04-06T17:40:17.508-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:gpuscheduler'
+2026-04-06T17:40:17.513-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-06T17:40:17.513-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-06T17:40:17.513-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-04-06T17:40:17.516-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Started JobControllerTest in 0.133 seconds (process running for 4.145)
+Seeded 4 GPU nodes. Total: 24 GPUs, 192GB memory.
+]]></system-out>
+  </testcase>
+  <testcase name="testGetJobByIdNotFoundReturns404" classname="com.essawi.gpuscheduler.JobControllerTest" time="0.151">
+    <system-out><![CDATA[2026-04-06T17:40:17.677-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:17.678-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
+2026-04-06T17:40:17.697-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-04-06T17:40:17.705-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Starting JobControllerTest using Java 21.0.4 with PID 15204 (started by ahmedessawi in /Users/ahmedessawi/gpu-scheduler)
+2026-04-06T17:40:17.705-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2026-04-06T17:40:17.743-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06T17:40:17.745-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2026-04-06T17:40:17.765-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06T17:40:17.765-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-06T17:40:17.768-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06T17:40:17.768-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
+2026-04-06T17:40:17.769-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-11 - Added connection conn49: url=jdbc:h2:mem:gpuscheduler user=SA
+2026-04-06T17:40:17.769-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
+2026-04-06T17:40:17.769-05:00  INFO 15204 --- [gpu-scheduler] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-11)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-06T17:40:17.778-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06T17:40:17.779-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:17.795-05:00  WARN 15204 --- [gpu-scheduler] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06T17:40:17.796-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-04-06T17:40:17.811-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:gpuscheduler'
+2026-04-06T17:40:17.815-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-06T17:40:17.815-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-06T17:40:17.816-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-06T17:40:17.819-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Started JobControllerTest in 0.121 seconds (process running for 4.448)
+Seeded 4 GPU nodes. Total: 24 GPUs, 192GB memory.
+]]></system-out>
+  </testcase>
+  <testcase name="testJobDurationIsBetween30And120" classname="com.essawi.gpuscheduler.JobControllerTest" time="0.172">
+    <system-out><![CDATA[2026-04-06T17:40:17.827-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:17.828-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
+2026-04-06T17:40:17.852-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-04-06T17:40:17.861-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Starting JobControllerTest using Java 21.0.4 with PID 15204 (started by ahmedessawi in /Users/ahmedessawi/gpu-scheduler)
+2026-04-06T17:40:17.861-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2026-04-06T17:40:17.895-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06T17:40:17.897-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2026-04-06T17:40:17.918-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06T17:40:17.919-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-06T17:40:17.921-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06T17:40:17.921-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
+2026-04-06T17:40:17.922-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-12 - Added connection conn51: url=jdbc:h2:mem:gpuscheduler user=SA
+2026-04-06T17:40:17.922-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
+2026-04-06T17:40:17.923-05:00  INFO 15204 --- [gpu-scheduler] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-12)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-06T17:40:17.931-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06T17:40:17.932-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:17.951-05:00  WARN 15204 --- [gpu-scheduler] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06T17:40:17.953-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-04-06T17:40:17.967-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:gpuscheduler'
+2026-04-06T17:40:17.971-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-06T17:40:17.972-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-06T17:40:17.972-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-04-06T17:40:17.974-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Started JobControllerTest in 0.121 seconds (process running for 4.603)
+Seeded 4 GPU nodes. Total: 24 GPUs, 192GB memory.
+]]></system-out>
+  </testcase>
+  <testcase name="testGetNodesReturnsSeededNodes" classname="com.essawi.gpuscheduler.JobControllerTest" time="0.147">
+    <system-out><![CDATA[2026-04-06T17:40:18.000-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:18.001-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown initiated...
+2026-04-06T17:40:18.010-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-04-06T17:40:18.018-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Starting JobControllerTest using Java 21.0.4 with PID 15204 (started by ahmedessawi in /Users/ahmedessawi/gpu-scheduler)
+2026-04-06T17:40:18.018-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2026-04-06T17:40:18.051-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06T17:40:18.053-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2026-04-06T17:40:18.070-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06T17:40:18.071-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-06T17:40:18.077-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06T17:40:18.077-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Starting...
+2026-04-06T17:40:18.078-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-13 - Added connection conn53: url=jdbc:h2:mem:gpuscheduler user=SA
+2026-04-06T17:40:18.078-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Start completed.
+2026-04-06T17:40:18.078-05:00  INFO 15204 --- [gpu-scheduler] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-13)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-06T17:40:18.094-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06T17:40:18.095-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:18.113-05:00  WARN 15204 --- [gpu-scheduler] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06T17:40:18.114-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-04-06T17:40:18.129-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:gpuscheduler'
+2026-04-06T17:40:18.133-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-06T17:40:18.133-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-06T17:40:18.133-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-04-06T17:40:18.137-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Started JobControllerTest in 0.126 seconds (process running for 4.767)
+Seeded 4 GPU nodes. Total: 24 GPUs, 192GB memory.
+]]></system-out>
+  </testcase>
+  <testcase name="testCreateJobReturnsQueuedJob" classname="com.essawi.gpuscheduler.JobControllerTest" time="0.147">
+    <system-out><![CDATA[2026-04-06T17:40:18.148-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:18.148-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
+2026-04-06T17:40:18.173-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-04-06T17:40:18.181-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Starting JobControllerTest using Java 21.0.4 with PID 15204 (started by ahmedessawi in /Users/ahmedessawi/gpu-scheduler)
+2026-04-06T17:40:18.181-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2026-04-06T17:40:18.212-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06T17:40:18.215-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2026-04-06T17:40:18.232-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06T17:40:18.232-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-06T17:40:18.235-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06T17:40:18.235-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Starting...
+2026-04-06T17:40:18.235-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-14 - Added connection conn55: url=jdbc:h2:mem:gpuscheduler user=SA
+2026-04-06T17:40:18.236-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Start completed.
+2026-04-06T17:40:18.236-05:00  INFO 15204 --- [gpu-scheduler] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-14)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-06T17:40:18.244-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06T17:40:18.245-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:18.263-05:00  WARN 15204 --- [gpu-scheduler] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06T17:40:18.265-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-04-06T17:40:18.279-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:gpuscheduler'
+2026-04-06T17:40:18.283-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-06T17:40:18.283-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-06T17:40:18.283-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-04-06T17:40:18.285-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Started JobControllerTest in 0.111 seconds (process running for 4.914)
+Seeded 4 GPU nodes. Total: 24 GPUs, 192GB memory.
+]]></system-out>
+  </testcase>
+  <testcase name="testCancelQueuedJobSetsStatusCancelled" classname="com.essawi.gpuscheduler.JobControllerTest" time="0.146">
+    <system-out><![CDATA[2026-04-06T17:40:18.295-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:18.295-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown initiated...
+2026-04-06T17:40:18.319-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-04-06T17:40:18.326-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Starting JobControllerTest using Java 21.0.4 with PID 15204 (started by ahmedessawi in /Users/ahmedessawi/gpu-scheduler)
+2026-04-06T17:40:18.326-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2026-04-06T17:40:18.357-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06T17:40:18.359-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2026-04-06T17:40:18.377-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06T17:40:18.378-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-06T17:40:18.380-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06T17:40:18.381-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Starting...
+2026-04-06T17:40:18.381-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-15 - Added connection conn57: url=jdbc:h2:mem:gpuscheduler user=SA
+2026-04-06T17:40:18.381-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Start completed.
+2026-04-06T17:40:18.381-05:00  INFO 15204 --- [gpu-scheduler] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-15)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-06T17:40:18.389-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06T17:40:18.390-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:18.405-05:00  WARN 15204 --- [gpu-scheduler] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06T17:40:18.406-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-04-06T17:40:18.425-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:gpuscheduler'
+2026-04-06T17:40:18.428-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-06T17:40:18.428-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-06T17:40:18.429-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-04-06T17:40:18.431-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Started JobControllerTest in 0.111 seconds (process running for 5.06)
+Seeded 4 GPU nodes. Total: 24 GPUs, 192GB memory.
+]]></system-out>
+  </testcase>
+  <testcase name="testMetricsEndpointReturnsExpectedFields" classname="com.essawi.gpuscheduler.JobControllerTest" time="0.148">
+    <system-out><![CDATA[2026-04-06T17:40:18.441-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:18.441-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Shutdown initiated...
+2026-04-06T17:40:18.464-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-04-06T17:40:18.472-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Starting JobControllerTest using Java 21.0.4 with PID 15204 (started by ahmedessawi in /Users/ahmedessawi/gpu-scheduler)
+2026-04-06T17:40:18.472-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2026-04-06T17:40:18.510-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06T17:40:18.512-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 2 JPA repository interfaces.
+2026-04-06T17:40:18.530-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06T17:40:18.531-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-06T17:40:18.533-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06T17:40:18.533-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Starting...
+2026-04-06T17:40:18.533-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-16 - Added connection conn59: url=jdbc:h2:mem:gpuscheduler user=SA
+2026-04-06T17:40:18.534-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Start completed.
+2026-04-06T17:40:18.534-05:00  INFO 15204 --- [gpu-scheduler] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-16)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-06T17:40:18.542-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06T17:40:18.543-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:18.557-05:00  WARN 15204 --- [gpu-scheduler] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06T17:40:18.558-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-04-06T17:40:18.572-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:gpuscheduler'
+2026-04-06T17:40:18.576-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-06T17:40:18.576-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-06T17:40:18.576-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-04-06T17:40:18.578-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Started JobControllerTest in 0.113 seconds (process running for 5.207)
+Seeded 4 GPU nodes. Total: 24 GPUs, 192GB memory.
+]]></system-out>
+  </testcase>
+  <testcase name="testGetAllJobsReturnsList" classname="com.essawi.gpuscheduler.JobControllerTest" time="0.151">
+    <system-out><![CDATA[2026-04-06T17:40:18.589-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:18.590-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown initiated...
+2026-04-06T17:40:18.614-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-04-06T17:40:18.622-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Starting JobControllerTest using Java 21.0.4 with PID 15204 (started by ahmedessawi in /Users/ahmedessawi/gpu-scheduler)
+2026-04-06T17:40:18.622-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2026-04-06T17:40:18.658-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-06T17:40:18.661-05:00  INFO 15204 --- [gpu-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 2 JPA repository interfaces.
+2026-04-06T17:40:18.681-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-06T17:40:18.682-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-06T17:40:18.685-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-06T17:40:18.685-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Starting...
+2026-04-06T17:40:18.685-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-17 - Added connection conn61: url=jdbc:h2:mem:gpuscheduler user=SA
+2026-04-06T17:40:18.685-05:00  INFO 15204 --- [gpu-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Start completed.
+2026-04-06T17:40:18.685-05:00  INFO 15204 --- [gpu-scheduler] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-17)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-06T17:40:18.694-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-06T17:40:18.696-05:00  INFO 15204 --- [gpu-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-06T17:40:18.710-05:00  WARN 15204 --- [gpu-scheduler] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-06T17:40:18.711-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-04-06T17:40:18.725-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:gpuscheduler'
+2026-04-06T17:40:18.729-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-04-06T17:40:18.729-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-04-06T17:40:18.729-05:00  INFO 15204 --- [gpu-scheduler] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-04-06T17:40:18.731-05:00  INFO 15204 --- [gpu-scheduler] [           main] c.essawi.gpuscheduler.JobControllerTest  : Started JobControllerTest in 0.116 seconds (process running for 5.361)
+Seeded 4 GPU nodes. Total: 24 GPUs, 192GB memory.
+]]></system-out>
+  </testcase>
+</testsuite>
